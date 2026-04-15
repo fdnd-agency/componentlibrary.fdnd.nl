@@ -1,0 +1,7 @@
+title: 'FDND Component Library'
+client: 'FDND'
+status: 'active'
+years: [2]
+main_link: 'https://componentlibrary.agency.fdnd.nl/'
+dev_link: 'https://componentlibrary.dev.fdnd.nl/'
+tech_stack: ['SvelteKit', 'Directus']

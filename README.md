@@ -17,12 +17,22 @@ npm run dev -- --open
 
 Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
 
+## Storybook
+
+You can see all components in the project in a nicely formatted way using storybook, start it up using:
+
+```sh
+npm run storybook
+
+```
+
 ## Building
 
 To build your library:
 
 ```sh
 npm pack
+
 ```
 
 To create a production version of your showcase app:
@@ -34,6 +44,12 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+To create a production version of storybook:
+
+```sh
+npm run build-storybook
+```
 
 ## Publishing
 

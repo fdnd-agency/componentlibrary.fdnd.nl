@@ -7,6 +7,6 @@
 
 <ul>
 	<li>
-		<code>npm run storybook</code> to run storybook and check out your components in a visual layout
+		<code>npm run storybook</code> to run storybook and check out components in a visual layout
 	</li>
 </ul>

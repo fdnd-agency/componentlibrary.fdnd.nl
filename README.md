@@ -4,6 +4,8 @@ Read more about creating a library [in the docs](https://svelte.dev/docs/kit/pac
 
 Read more about storybook [in the storybook docs](https://storybook.js.org/docs).
 
+We've installed two packages for testing, read up on [playwright for end-to-end testing](https://playwright.dev/docs/writing-tests) and [vitest for unit testing](https://vitest.dev/guide/learn/writing-tests.html).
+
 ## Showcase or preview app
 
 Once you've installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:

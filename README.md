@@ -1,12 +1,12 @@
 # FDND Component Library
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
-
 Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
 
-## Developing
+Read more about storybook [in the storybook docs](https://storybook.js.org/docs).
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Showcase or preview app
+
+Once you've installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```sh
 npm run dev
@@ -15,7 +15,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app and everything inside `src/stories` is part of storybook.
 
 ## Storybook
 

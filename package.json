@@ -61,6 +61,8 @@
 		"vitest-browser-svelte": "^2.1.0"
 	},
 	"keywords": [
-		"svelte"
+		"svelte",
+		"storybook",
+		"fdnd"
 	]
 }

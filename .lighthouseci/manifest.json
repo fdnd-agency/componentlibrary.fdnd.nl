@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://localhost:49234/index.html",
+    "isRepresentativeRun": true,
+    "htmlPath": "C:\\Users\\mikiyas\\Desktop\\componentlibrary.fdnd.nl\\.lighthouseci\\localhost-index_html-2026_05_11_12_46_30.report.html",
+    "jsonPath": "C:\\Users\\mikiyas\\Desktop\\componentlibrary.fdnd.nl\\.lighthouseci\\localhost-index_html-2026_05_11_12_46_30.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 0.94,
+      "best-practices": 1,
+      "seo": 0.8
+    }
+  }
+]

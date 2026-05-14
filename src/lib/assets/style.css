@@ -1,11 +1,12 @@
 /* MARK: Design tokens
 */
 :root {
-	--color-blue: #050542;
-	--color-green: #66e5bf;
-	--color-purple: #a675f5;
-	--color-white: #ffffff;
-	--color-yellow: #fffc86;
+	--c-purple: #a675f5;
+	--c-teal: #66e5bf;
+	--c-dark: #050542;
+	--c-yellow: #fffc86;
+	--c-lemon: #e2fc91;
+	--c-white: #ffffff;
 }
 
 /* MARK: Reset

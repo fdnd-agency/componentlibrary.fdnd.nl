@@ -1,0 +1,101 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks'
+import '../lib/assets/style.css'
+
+<Meta title="Tokens/Fonts" />
+
+# Fonts
+
+FDND uses **Open Sans** as its primary font.
+
+## Headings, weights 700
+
+<Typeset
+  fontSizes={[16, 24, 32, 40]}
+  fontWeight={700}
+  sampleText="Frontend Design & Development"
+  fontFamily="'Open Sans', sans-serif"
+/>
+
+## Body, weight 400
+
+<Typeset
+  fontSizes={[12, 14, 16, 20, 24, 32]}
+  fontWeight={400}
+  sampleText="Frontend Design & Development"
+  fontFamily="'Open Sans', sans-serif"
+/>
+
+## Token reference
+
+<section>
+  <table>
+    <caption>All typography classes and their CSS values</caption>
+    <thead>
+      <tr>
+        <th scope="col">Class</th>
+        <th scope="col">Font size</th>
+        <th scope="col">Font weight</th>
+        <th scope="col">Letter spacing</th>
+        <th scope="col">Line height</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>.xlarge-heading</code></td>
+        <td>clamp(2.5rem, calc(64 / 60 * var(--grid-1)), 5rem)</td>
+        <td>700</td>
+        <td>-0.05em</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td><code>.large-heading</code></td>
+        <td>clamp(2rem, calc(52 / 60 * var(--grid-1)), 4.375rem)</td>
+        <td>700</td>
+        <td>-0.06em</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td><code>.medium-heading</code></td>
+        <td>clamp(1.5rem, calc(40 / 60 * var(--grid-1)), 3.25rem)</td>
+        <td>700</td>
+        <td>-0.06em</td>
+        <td>1.1</td>
+      </tr>
+      <tr>
+        <td><code>.small-heading</code></td>
+        <td>clamp(1rem, calc(18 / 60 * var(--grid-1)), 1.5rem)</td>
+        <td>700</td>
+        <td>-0.03em</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td><code>.xlarge-body</code></td>
+        <td>clamp(1.25rem, calc(24 / 60 * var(--grid-1)), 2rem)</td>
+        <td>400</td>
+        <td>-0.04em</td>
+        <td>1.33</td>
+      </tr>
+      <tr>
+        <td><code>.large-body</code></td>
+        <td>clamp(1rem, calc(18 / 60 * var(--grid-1)), 1.5rem)</td>
+        <td>400</td>
+        <td>-0.04em</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td><code>.medium-body</code></td>
+        <td>clamp(0.875rem, calc(16 / 60 * var(--grid-1)), 1.25rem)</td>
+        <td>400</td>
+        <td>-0.04em</td>
+        <td>1.5</td>
+      </tr>
+      <tr>
+        <td><code>.small-body</code></td>
+        <td>clamp(0.75rem, calc(14 / 60 * var(--grid-1)), 1.125rem)</td>
+        <td>400</td>
+        <td>-0.04em</td>
+        <td>1.5</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

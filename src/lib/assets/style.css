@@ -86,6 +86,17 @@ h1, h2, h3, h4, h5, h6, p, button, a {
 	line-height: 1.5;
 }
 
+/* MARK: Spacing
+*/
+.subtitle + .xlarge-heading { margin-top: 0.1875em; }
+.subtitle + .large-heading { margin-top: 0.076em; }
+.subtitle + .medium-heading { margin-top: 0.1em; }
+.large-heading + .xlarge-body { margin-top: 0.1em; }
+.medium-heading + .large-body { margin-top: 1.1em; }
+.xlarge-body + .large-body { margin-top: 1.1em; }
+.large-body + .medium-body { margin-top: 1.25em; }
+.large-body + .large-body { margin-top: 1.1em; }
+
 /* MARK: Reset
 */
 

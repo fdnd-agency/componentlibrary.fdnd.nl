@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import '../lib/assets/style.css'
+
+<Meta title="Tokens/Spacing" />
+
+# Spacing
+
+FDND uses relative spacing based on `em` units, so spacing scales with the font size of the element.
+
+## Typography spacing
+
+The image below shows the spacing relationships between typography elements as defined in the Figma design.
+
+<img src="/spacingfigma.png" alt="Figma spacing voorbeeld foto" />
+
+These rules define how much vertical space sits between two text elements that directly follow each other.
+
+<section>
+  <table>
+    <caption>Margin-top between typography elements</caption>
+    <thead>
+      <tr>
+        <th scope="col">Selector</th>
+        <th scope="col">Margin-top</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>.subtitle + .xlarge-heading</code></td>
+        <td>0.1875em (12px)</td>
+      </tr>
+      <tr>
+        <td><code>.subtitle + .large-heading</code></td>
+        <td>0.076em (4px)</td>
+      </tr>
+      <tr>
+        <td><code>.subtitle + .medium-heading</code></td>
+        <td>0.1em (4px)</td>
+      </tr>
+      <tr>
+        <td><code>.large-heading + .xlarge-body</code></td>
+        <td>0.1em</td>
+      </tr>
+      <tr>
+        <td><code>.medium-heading + .large-body</code></td>
+        <td>1.1em (20px)</td>
+      </tr>
+      <tr>
+        <td><code>.xlarge-body + .large-body</code></td>
+        <td>1.1em (20px)</td>
+      </tr>
+      <tr>
+        <td><code>.large-body + .medium-body</code></td>
+        <td>1.25em (20px)</td>
+      </tr>
+      <tr>
+        <td><code>.large-body + .large-body</code></td>
+        <td>1.1em (20px)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

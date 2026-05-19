@@ -3,19 +3,43 @@
 /* MARK: Design tokens
 */
 :root {
-	--c-purple: #a675f5;
-	--c-teal: #66e5bf;
-	--c-dark: #050542;
-	--c-yellow: #fffc86;
-	--c-lemon: #e2fc91;
-	--c-white: #ffffff;
+	--grey: #ECECEC;
+	--purple: #A675F5;
+	--blue: #050542;
+	--blue-50: rgba(5, 5, 66, 0.5);
+	--green: #66E5BF;
+	--yellow: #FFFC86;
+
+	--base-color: var(--purple);
+	--background: var(--grey);
+	--color: var(--blue);
+	--button-color: var(--grey);
+	--accent-color-1: var(--purple);
+	--accent-color-2: var(--green);
+	--accent-color-3: var(--yellow);
+	--accent-color-1-rgb: 166, 117, 245;
+
+}
+
+/* MARK: Layout
+*/
+:root {
+	--grid-1: 100vw / 24;
+	--grid-1-calc: calc(var(--grid-1));
+	--padding-side: clamp(1rem, var(--grid-1-calc), 5rem);
+	--small-radius: 0.5rem;
+	--radius: 0.5rem;
+	--section-width: calc(100vw - 3rem);
+	--max-width: 117rem;
+	--calc-side: calc((100vw - var(--max-width)) / 2);
+	--angle: 42deg;
+
 }
 
 /* MARK: Typography
 */
 :root {
 	--font-family: 'Open Sans', sans-serif;
-	--grid-1: 100vw / 24;
 }
 
 h1, h2, h3, h4, h5, h6, p, button, a {

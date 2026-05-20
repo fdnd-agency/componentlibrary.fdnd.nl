@@ -12,10 +12,11 @@
 					d="M22.058 12.068c-1.653-.017-6.67-.114-13.119 2.867-.822.381-1.404.7-1.543.497-.278-.44 1.772-2.182 3.972-3.455.795-.473 1.25-.886 1.072-1.238-.265-.512-1.841-.617-6.239 1.633a24.751 24.751 0 0 0-6.034 4.736l.717.677c.706-.748 1.469-1.44 2.246-2.12.519-.45 2.923-2.246 3.133-1.704.081.217-.072.534-.924 1.698-.742 1.029-1.23 1.99-.878 2.285.35.297.773.128 1.776-.425.743-.41 3.102-1.66 6.821-2.778 3.72-1.11 4.623-.689 4.714-.417.113.366-1.6.972-2.61 1.472-.844.433-3.828 2.186-5.447 3.49 0 0 1.57 2.693 1.576 2.693 1.67-.982 8.033-2.592 8.712-1.429.746 1.277-6.024 6.035-6.024 6.035L18.293 34s9.817-11.275 8.252-13.748c-1.578-2.461-7.487-2.005-9.819-1.784-.64.056-1.392.196-1.55-.12-.176-.351.026-1.76 7.905-3.626 1.752-.41 2.434-.626 2.338-1.4-.081-.665-1.706-1.242-3.36-1.254Z"
 				></path>
 			</svg>
+			<p class="tagline small-body">Frontend Design & Development</p>
 		</a>
 
 		<button class="menu-button">MENU</button>
-		
+      
     <a href="/" class="fdnd-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 93 52">
 				<title>FDND</title>
@@ -31,6 +32,13 @@
 				></path>
 			</svg>
 		</a>
+
+		<ul class="main-nav">
+			<li><a href="/frontender-worden">Frontender worden?</a></li>
+			<li><a href="/aansluiting-op-praktijk">Aansluiting op praktijk</a></li>
+			<li><a href="/het-studiomodel">Het studiomodel</a></li>
+			<li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li>
+		</ul>
 
 		<ul class="socials">
 			<li>
@@ -63,7 +71,7 @@
 					</svg>
 				</a>
 			</li>
-      
+
 			<li>
 				<a href="https://www.linkedin.com/school/fdnd/" class="social">
 					<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -85,17 +93,48 @@
 		color: var(--color);
 		padding: 1.5rem var(--padding-side) 1rem;
 
+		@media (min-width: 768px) and (max-width: 1023px) {
+			padding: 1.75rem var(--padding-side) 0;
+		}
+
 		.nav {
 			display: grid;
 			grid-template-columns: 1fr auto;
-			gap: 1rem;
+			gap: 1.5rem;
+
+			@media (min-width: 768px) and (max-width: 1023px) {
+				grid-template-columns: 1fr auto auto;
+				gap: 1rem;
+			}
 
 			.hva-logo {
 				text-decoration: none;
 
 				svg {
-					width: clamp(15rem, calc(250 / 1440 * 100vw), 330px);
+					width: 15rem;
 					height: auto;
+				}
+
+				.tagline {
+					display: none;
+				}
+
+				@media (min-width: 768px) and (max-width: 1023px) {
+					display: flex;
+					align-items: center;
+					gap: 1rem;
+
+					.tagline {
+						display: block;
+						border-left: 1px solid var(--blue);
+						padding-left: 1rem;
+						line-height: 1;
+						white-space: nowrap;
+					}
+				}
+
+				@media (min-width: 768px) and (max-width: 1023px) {
+					svg { width: 16rem; }
 				}
 			}
 
@@ -107,6 +146,10 @@
 				font-family: var(--font-family);
 				cursor: pointer;
 				align-self: center;
+
+				@media (min-width: 768px) and (max-width: 1023px) {
+					display: none;
+				}
 			}
 
 			.fdnd-logo {
@@ -114,6 +157,11 @@
 
 				svg {
 					height: 2.5rem;
+				}
+
+				@media (min-width: 768px) and (max-width: 1023px) {
+					grid-row: 1;
+					grid-column: 3;
 				}
 			}
 
@@ -123,6 +171,10 @@
 				gap: 1rem;
 				list-style: none;
 				padding-left: 0;
+
+				@media (min-width: 768px) and (max-width: 1023px) {
+					align-self: center;
+				}
 
 				.social {
 					display: block;

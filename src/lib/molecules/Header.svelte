@@ -94,7 +94,7 @@
 		z-index: 2;
 		background-color: var(--base-color);
 		color: var(--color);
-		padding: 1.5rem var(--padding-side) 1rem;
+		padding: 1.5rem var(--padding-side) 0;
 
 		&.open {
 			background-color: var(--accent-color-2);
@@ -114,6 +114,10 @@
 				gap: 1rem;
 			}
 
+			@media (min-width: 1024px) {
+				grid-template-columns: auto 1fr;
+			}
+
 			.hva-logo {
 				position: relative;
 				z-index: 2;
@@ -128,10 +132,12 @@
 					display: none;
 				}
 
-				@media (min-width: 768px) and (max-width: 1023px) {
+				@media (min-width: 768px) {
 					display: flex;
 					align-items: center;
 					gap: 1rem;
+
+					svg { width: 16rem; }
 
 					.tagline {
 						display: block;
@@ -139,11 +145,13 @@
 						padding-left: 1rem;
 						line-height: 1;
 						white-space: nowrap;
+						letter-spacing: -0.03em;
+						font-size: clamp(0.75rem, calc(var(--grid-1) * 16 / 60), 1.25rem);
 					}
 				}
 
-				@media (min-width: 768px) and (max-width: 1023px) {
-					svg { width: 16rem; }
+				@media (min-width: 1024px) {
+					svg { width: 17rem; }
 				}
 			}
 
@@ -159,7 +167,7 @@
 				line-height: 1;
 				font-family: var(--font-family);
 
-				@media (min-width: 768px) and (max-width: 1023px) {
+				@media (min-width: 768px) {
 					display: none;
 				}
 			}
@@ -168,6 +176,7 @@
 				position: relative;
 				z-index: 2;
 				align-self: center;
+				height: 3rem;
 
 				svg {
 					height: 2.5rem;
@@ -176,6 +185,15 @@
 				@media (min-width: 768px) and (max-width: 1023px) {
 					grid-row: 1;
 					grid-column: 3;
+				}
+
+				@media (min-width: 1024px) {
+					grid-row: 2;
+					grid-column: 1;
+					align-self: end;
+					height: 4rem;
+
+					svg { height: 3rem; }
 				}
 			}
 
@@ -190,6 +208,13 @@
 
 				@media (min-width: 768px) and (max-width: 1023px) {
 					align-self: center;
+				}
+
+				@media (min-width: 1024px) {
+					grid-row: 1;
+					grid-column: 2;
+					align-self: center;
+					justify-self: end;
 				}
 
 				.social {
@@ -214,6 +239,7 @@
 					text-decoration: none;
 					white-space: nowrap;
 					line-height: 1;
+					letter-spacing: -0.03em;
 				}
 
 				@media (max-width: 767px) {
@@ -259,12 +285,24 @@
 					grid-column: 1 / -1;
 					align-self: end;
 					padding: 1.5rem var(--grid-1-calc) 0.75rem 1.5rem;
-					margin-left: 2rem;
-					margin-right: -1em;
+					max-width: calc(100% - var(--radius) * 2.25);
+					margin-left: auto;
+					margin-right: calc(var(--radius));
 				}
 
 				@media (min-width: 1024px) {
 					display: flex;
+					align-items: center;
+					gap: calc(var(--grid-1) * 40 / 60);
+					border-radius: 1.48rem 1.48rem 0 0;
+					background: var(--background);
+					color: var(--color);
+					grid-row: 2;
+					grid-column: 2;
+					align-self: end;
+					justify-self: end;
+					padding: 1.5rem var(--grid-1-calc) 1.5rem 1.5rem;
+					margin-right: -2rem;
 				}
 			}
 		}

@@ -1,6 +1,8 @@
-<!-- header -->
-<header class="header">
-<!-- nav -->
+<script>
+	let open = $state(false);
+</script>
+
+<header class="header" class:open>
 	<nav class="nav">
 		<a href="https://hva.nl" class="hva-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 35">
@@ -15,9 +17,15 @@
 			<p class="tagline small-body">Frontend Design & Development</p>
 		</a>
 
-		<button class="menu-button">MENU</button>
-      
-    <a href="/" class="fdnd-logo">
+		<button class="menu-button" onclick={() => open = !open}>{open ? 'CLOSE' : 'MENU'}</button>
+		<ul class="main-nav" class:open>
+			<li><a href="/frontender-worden">Frontender worden?</a></li>
+			<li><a href="/aansluiting-op-praktijk">Aansluiting op praktijk</a></li>
+			<li><a href="/het-studiomodel">Het studiomodel</a></li>
+			<li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li>
+		</ul>
+
+		<a href="/" class="fdnd-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 93 52">
 				<title>FDND</title>
 				<rect width="89" height="48" x=".5" y="3.5" fill="#ECECEC" stroke="#050542" rx="7.5"></rect>
@@ -32,13 +40,6 @@
 				></path>
 			</svg>
 		</a>
-
-		<ul class="main-nav">
-			<li><a href="/frontender-worden">Frontender worden?</a></li>
-			<li><a href="/aansluiting-op-praktijk">Aansluiting op praktijk</a></li>
-			<li><a href="/het-studiomodel">Het studiomodel</a></li>
-			<li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li>
-		</ul>
 
 		<ul class="socials">
 			<li>
@@ -89,9 +90,15 @@
 
 <style>
 	.header {
+		position: relative;
+		z-index: 2;
 		background-color: var(--base-color);
 		color: var(--color);
 		padding: 1.5rem var(--padding-side) 1rem;
+
+		&.open {
+			background-color: var(--accent-color-2);
+		}
 
 		@media (min-width: 768px) and (max-width: 1023px) {
 			padding: 1.75rem var(--padding-side) 0;
@@ -108,6 +115,8 @@
 			}
 
 			.hva-logo {
+				position: relative;
+				z-index: 2;
 				text-decoration: none;
 
 				svg {
@@ -139,13 +148,16 @@
 			}
 
 			.menu-button {
+				position: relative;
+				z-index: 2;
 				background-color: var(--button-color);
 				color: var(--blue);
 				border: 2px solid var(--blue);
 				border-radius: var(--radius);
-				font-family: var(--font-family);
+				padding: 0.375rem 0.75rem;
 				cursor: pointer;
-				align-self: center;
+				line-height: 1;
+				font-family: var(--font-family);
 
 				@media (min-width: 768px) and (max-width: 1023px) {
 					display: none;
@@ -153,6 +165,8 @@
 			}
 
 			.fdnd-logo {
+				position: relative;
+				z-index: 2;
 				align-self: center;
 
 				svg {
@@ -166,6 +180,8 @@
 			}
 
 			.socials {
+				position: relative;
+				z-index: 2;
 				display: flex;
 				align-items: center;
 				gap: 1rem;
@@ -186,6 +202,69 @@
 						width: 100%;
 						height: 100%;
 					}
+				}
+			}
+
+			.main-nav {
+				display: none;
+				list-style: none;
+
+				a {
+					color: var(--blue);
+					text-decoration: none;
+					white-space: nowrap;
+					line-height: 1;
+				}
+
+				@media (max-width: 767px) {
+					&.open {
+						display: flex;
+						flex-direction: column;
+						position: fixed;
+						top: 0;
+						left: 0;
+						right: 0;
+						height: 100vh;
+						height: 100lvh;
+						margin: 0;
+						max-width: unset;
+						background: var(--accent-color-2);
+						z-index: 1;
+						padding: 8rem var(--padding-side) 0;
+						gap: 0;
+
+						li {
+							border-bottom: 1px solid var(--blue);
+							margin-left: calc(-1 * var(--padding-side));
+							margin-right: calc(-1 * var(--padding-side));
+						}
+
+						a {
+							display: block;
+							padding: 1.5rem var(--padding-side);
+							text-align: left;
+							font-size: clamp(1.75rem, 6vw, 2.5rem);
+						}
+					}
+				}
+
+				@media (min-width: 768px) and (max-width: 1023px) {
+					display: flex;
+					align-items: center;
+					gap: clamp(1rem, calc(var(--grid-1) * 40 / 60), 2.5rem);
+					border-radius: 1.48rem 1.48rem 0 0;
+					background: var(--background);
+					color: var(--color);
+					grid-row: 2;
+					grid-column: 1 / -1;
+					align-self: end;
+					padding: 1.5rem var(--grid-1-calc) 0.75rem 1.5rem;
+					margin-left: 2rem;
+					margin-right: -1em;
+				}
+
+				@media (min-width: 1024px) {
+					display: flex;
 				}
 			}
 		}

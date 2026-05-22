@@ -239,6 +239,23 @@
 					white-space: nowrap;
 					line-height: 1;
 					letter-spacing: -0.03em;
+					position: relative;
+
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: -2px;
+						left: 0;
+						width: 100%;
+						height: 1px;
+						background: var(--blue);
+						opacity: 0;
+						transition: opacity 0.2s ease;
+					}
+
+					&:hover::after {
+						opacity: 1;
+					}
 				}
 
 				@media (max-width: 767px) {

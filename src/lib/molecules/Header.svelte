@@ -102,6 +102,11 @@
 
 		@media (min-width: 768px) and (max-width: 1023px) {
 			padding: 1.75rem var(--padding-side) 0;
+			overflow: hidden;
+		}
+
+		@media (min-width: 1024px) {
+			overflow: hidden;
 		}
 
 		.nav {
@@ -325,6 +330,8 @@
 					max-width: calc(100% - var(--radius) * 2.25);
 					margin-left: auto;
 					margin-right: calc(var(--radius));
+					transform: translateY(100%);
+					animation: up 0.4s 0.6s ease-out forwards;
 				}
 
 				@media (min-width: 1024px) {
@@ -340,8 +347,14 @@
 					justify-self: end;
 					padding: 1.5rem var(--grid-1-calc) 1.5rem 1.5rem;
 					margin-right: -2rem;
+					transform: translateY(100%);
+					animation: up 0.4s 0.6s ease-out forwards;
 				}
 			}
 		}
+	}
+
+	@keyframes up {
+		to { transform: translateY(0); }
 	}
 </style>

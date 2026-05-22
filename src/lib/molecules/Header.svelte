@@ -231,7 +231,6 @@
 			}
 
 			.main-nav {
-				display: none;
 				list-style: none;
 
 				a {
@@ -243,6 +242,24 @@
 				}
 
 				@media (max-width: 767px) {
+					display: flex;
+					flex-direction: column;
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					height: 100vh;
+					height: 100lvh;
+					margin: 0;
+					max-width: unset;
+					background: var(--accent-color-2);
+					z-index: 1;
+					padding: 8rem var(--padding-side) 0;
+					gap: 0;
+					clip-path: inset(-1px -1px 101%);
+					pointer-events: none;
+					transition: clip-path 0.4s ease-out;
+
 					&.open {
 						display: flex;
 						flex-direction: column;
@@ -258,6 +275,9 @@
 						z-index: 1;
 						padding: 8rem var(--padding-side) 0;
 						gap: 0;
+						clip-path: inset(-1px -1px 0%);
+						pointer-events: auto;
+						transition: clip-path 0.4s ease-out;
 
 						li {
 							border-bottom: 1px solid var(--blue);

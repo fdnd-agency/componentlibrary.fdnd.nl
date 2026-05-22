@@ -123,6 +123,7 @@
 				position: relative;
 				z-index: 2;
 				text-decoration: none;
+				color: inherit;
 
 				svg {
 					width: 15rem;

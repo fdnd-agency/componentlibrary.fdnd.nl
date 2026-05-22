@@ -100,12 +100,8 @@
 			background-color: var(--accent-color-2);
 		}
 
-		@media (min-width: 768px) and (max-width: 1023px) {
-			padding: 1.75rem var(--padding-side) 0;
-			overflow: hidden;
-		}
-
-		@media (min-width: 1024px) {
+		@media (min-width: 768px) {
+			padding: 1.75rem 0 0 var(--padding-side);
 			overflow: hidden;
 		}
 
@@ -190,6 +186,7 @@
 				@media (min-width: 768px) and (max-width: 1023px) {
 					grid-row: 1;
 					grid-column: 3;
+					margin-right: var(--padding-side);
 				}
 
 				@media (min-width: 1024px) {
@@ -220,6 +217,7 @@
 					grid-column: 2;
 					align-self: center;
 					justify-self: end;
+					margin-right: var(--padding-side);
 				}
 
 				.social {
@@ -346,7 +344,7 @@
 					align-self: end;
 					justify-self: end;
 					padding: 1.5rem var(--grid-1-calc) 1.5rem 1.5rem;
-					margin-right: -2rem;
+					margin-right: calc(var(--radius));
 					transform: translateY(100%);
 					animation: up 0.4s 0.6s ease-out forwards;
 				}

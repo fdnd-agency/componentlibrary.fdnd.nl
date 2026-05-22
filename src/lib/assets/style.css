@@ -28,7 +28,7 @@
 	--grid-1-calc: calc(var(--grid-1));
 	--padding-side: clamp(1rem, var(--grid-1-calc), 5rem);
 	--small-radius: 0.5rem;
-	--radius: 0.5rem;
+	--radius: clamp(0.5rem, calc(var(--grid-1-calc) * 16 / 60), 1.5rem);
 	--section-width: calc(100vw - 3rem);
 	--max-width: 117rem;
 	--calc-side: calc((100vw - var(--max-width)) / 2);

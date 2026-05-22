@@ -105,6 +105,10 @@
 			overflow: hidden;
 		}
 
+		@media (min-width: 1440px) {
+			padding: 3rem 0 0 var(--padding-side);
+		}
+
 		.nav {
 			display: grid;
 			grid-template-columns: 1fr auto;
@@ -155,6 +159,10 @@
 				@media (min-width: 1024px) {
 					svg { width: 17rem; }
 				}
+
+				@media (min-width: 1440px) {
+					svg { width: 20rem; }
+				}
 			}
 
 			.menu-button {
@@ -197,6 +205,12 @@
 					height: 4rem;
 
 					svg { height: 3rem; }
+				}
+
+				@media (min-width: 1440px) {
+					height: 5rem;
+
+					svg { height: 4rem; }
 				}
 			}
 
@@ -282,20 +296,6 @@
 					transition: clip-path 0.4s ease-out;
 
 					&.open {
-						display: flex;
-						flex-direction: column;
-						position: fixed;
-						top: 0;
-						left: 0;
-						right: 0;
-						height: 100vh;
-						height: 100lvh;
-						margin: 0;
-						max-width: unset;
-						background: var(--accent-color-2);
-						z-index: 1;
-						padding: 8rem var(--padding-side) 0;
-						gap: 0;
 						clip-path: inset(-1px -1px 0%);
 						pointer-events: auto;
 						transition: clip-path 0.4s ease-out;
@@ -315,39 +315,42 @@
 					}
 				}
 
-				@media (min-width: 768px) and (max-width: 1023px) {
+				@media (min-width: 768px) {
 					display: flex;
 					align-items: center;
-					gap: clamp(1rem, calc(var(--grid-1) * 40 / 60), 2.5rem);
 					border-radius: 1.48rem 1.48rem 0 0;
 					background: var(--background);
 					color: var(--color);
-					grid-row: 2;
-					grid-column: 1 / -1;
 					align-self: end;
-					padding: 1.5rem var(--grid-1-calc) 0.75rem 1.5rem;
-					max-width: calc(100% - var(--radius) * 2.25);
-					margin-left: auto;
 					margin-right: calc(var(--radius));
 					transform: translateY(100%);
 					animation: up 0.4s 0.6s ease-out forwards;
 				}
 
+				@media (min-width: 768px) and (max-width: 1023px) {
+					gap: clamp(1rem, calc(var(--grid-1) * 40 / 60), 2.5rem);
+					grid-row: 2;
+					grid-column: 1 / -1;
+					padding: 1.5rem var(--grid-1-calc) 0.75rem 1.5rem;
+					max-width: calc(100% - var(--radius) * 2.25);
+					margin-left: auto;
+				}
+
 				@media (min-width: 1024px) {
-					display: flex;
-					align-items: center;
 					gap: calc(var(--grid-1) * 40 / 60);
-					border-radius: 1.48rem 1.48rem 0 0;
-					background: var(--background);
-					color: var(--color);
 					grid-row: 2;
 					grid-column: 2;
-					align-self: end;
 					justify-self: end;
 					padding: 1.5rem var(--grid-1-calc) 1.5rem 1.5rem;
-					margin-right: calc(var(--radius));
-					transform: translateY(100%);
-					animation: up 0.4s 0.6s ease-out forwards;
+				}
+
+				@media (min-width: 1440px) {
+					padding: 2rem var(--grid-1-calc) 2rem 2rem;
+					gap: calc(var(--grid-1) * 50 / 60);
+
+					a {
+						font-size: 1.125rem;
+					}
 				}
 			}
 		}

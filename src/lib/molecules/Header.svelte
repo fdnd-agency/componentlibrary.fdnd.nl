@@ -120,7 +120,7 @@
 			}
 
 			@media (min-width: 1024px) {
-				grid-template-columns: auto 1fr;
+				grid-template-columns: minmax(17rem, max-content) 1fr;
 			}
 
 			.hva-logo {
@@ -157,6 +157,7 @@
 				}
 
 				@media (min-width: 1024px) {
+					width: max-content;
 					svg { width: 17rem; }
 				}
 

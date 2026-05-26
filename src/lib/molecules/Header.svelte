@@ -7,8 +7,7 @@
 </script>
 
 <header class="header" class:open>
-	<nav class="nav">
-		<a href="https://hva.nl" class="hva-logo">
+	<a href="https://hva.nl" class="hva-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 35">
 				<title>Een studie aan de Hogeschool van Amsterdam</title>
 				<path
@@ -22,12 +21,14 @@
 		</a>
 
 		<button class="menu-button" onclick={() => open = !open}>{open ? 'CLOSE' : 'MENU'}</button>
-		<ul class="main-nav" class:open>
-			<li><a href="/frontender-worden" aria-current={page.url.pathname === '/frontender-worden' ? 'page' : undefined}>Frontender worden?</a></li>
-			<li><a href="/aansluiting-op-praktijk" aria-current={page.url.pathname === '/aansluiting-op-praktijk' ? 'page' : undefined}>Aansluiting op praktijk</a></li>
-			<li><a href="/het-studiomodel" aria-current={page.url.pathname === '/het-studiomodel' ? 'page' : undefined}>Het studiomodel</a></li>
-			<li><a href="/veelgestelde-vragen" aria-current={page.url.pathname === '/veelgestelde-vragen' ? 'page' : undefined}>Veelgestelde vragen</a></li>
-		</ul>
+		<nav aria-label="Hoofdnavigatie">
+			<ul class="main-nav" class:open>
+				<li><a href="/frontender-worden" aria-current={page.url.pathname === '/frontender-worden' ? 'page' : undefined}>Frontender worden?</a></li>
+				<li><a href="/aansluiting-op-praktijk" aria-current={page.url.pathname === '/aansluiting-op-praktijk' ? 'page' : undefined}>Aansluiting op praktijk</a></li>
+				<li><a href="/het-studiomodel" aria-current={page.url.pathname === '/het-studiomodel' ? 'page' : undefined}>Het studiomodel</a></li>
+				<li><a href="/veelgestelde-vragen" aria-current={page.url.pathname === '/veelgestelde-vragen' ? 'page' : undefined}>Veelgestelde vragen</a></li>
+			</ul>
+		</nav>
 
 		<a href="/" class="fdnd-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 93 52">
@@ -45,26 +46,27 @@
 			</svg>
 		</a>
 
-		<ul class="socials">
-			<li>
-				<a href="https://www.youtube.com/@FDND-HvA/" class="social">
-					<YouTube />
-				</a>
-			</li>
+		<nav aria-label="Sociale media">
+			<ul class="socials">
+				<li>
+					<a href="https://www.youtube.com/@FDND-HvA/" class="social">
+						<YouTube />
+					</a>
+				</li>
 
-			<li>
-				<a href="https://www.instagram.com/fdnd.nl/" class="social">
-					<Instagram />
-				</a>
-			</li>
+				<li>
+					<a href="https://www.instagram.com/fdnd.nl/" class="social">
+						<Instagram />
+					</a>
+				</li>
 
-			<li>
-				<a href="https://www.linkedin.com/school/fdnd/" class="social">
-					<LinkedIn />
-				</a>
-			</li>
-		</ul>
-	</nav>
+				<li>
+					<a href="https://www.linkedin.com/school/fdnd/" class="social">
+						<LinkedIn />
+					</a>
+				</li>
+			</ul>
+		</nav>
 </header>
 
 <style>
@@ -88,10 +90,13 @@
 			padding: 3rem 0 0 var(--padding-side);
 		}
 
-		.nav {
-			display: grid;
-			grid-template-columns: 1fr auto;
-			gap: 1.5rem;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 1.5rem;
+
+			nav {
+				display: contents;
+			}
 
 			@media (min-width: 768px) and (max-width: 1023px) {
 				grid-template-columns: 1fr auto auto;
@@ -357,7 +362,6 @@
 					}
 				}
 			}
-		}
 	}
 
 	@keyframes up {

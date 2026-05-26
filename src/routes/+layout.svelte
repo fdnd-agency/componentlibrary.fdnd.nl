@@ -5,6 +5,10 @@
 	let { children, data } = $props()
 </script>
 
+<svelte:head>
+	<title>FDND Component Library</title>
+</svelte:head>
+
 <Header />
 
 <main>

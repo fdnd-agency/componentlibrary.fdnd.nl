@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/state';
 	let open = $state(false);
 </script>
 
@@ -19,10 +20,10 @@
 
 		<button class="menu-button" onclick={() => open = !open}>{open ? 'CLOSE' : 'MENU'}</button>
 		<ul class="main-nav" class:open>
-			<li><a href="/frontender-worden">Frontender worden?</a></li>
-			<li><a href="/aansluiting-op-praktijk">Aansluiting op praktijk</a></li>
-			<li><a href="/het-studiomodel">Het studiomodel</a></li>
-			<li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li>
+			<li><a href="/frontender-worden" aria-current={page.url.pathname === '/frontender-worden' ? 'page' : undefined}>Frontender worden?</a></li>
+			<li><a href="/aansluiting-op-praktijk" aria-current={page.url.pathname === '/aansluiting-op-praktijk' ? 'page' : undefined}>Aansluiting op praktijk</a></li>
+			<li><a href="/het-studiomodel" aria-current={page.url.pathname === '/het-studiomodel' ? 'page' : undefined}>Het studiomodel</a></li>
+			<li><a href="/veelgestelde-vragen" aria-current={page.url.pathname === '/veelgestelde-vragen' ? 'page' : undefined}>Veelgestelde vragen</a></li>
 		</ul>
 
 		<a href="/" class="fdnd-logo">

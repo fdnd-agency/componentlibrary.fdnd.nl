@@ -325,23 +325,23 @@
 					pointer-events: none;
 					transition: clip-path 0.4s ease-out;
 
+					li {
+						border-bottom: 1px solid var(--blue);
+						margin-left: calc(-1 * var(--padding-side));
+						margin-right: calc(-1 * var(--padding-side));
+					}
+
+					a {
+						display: block;
+						padding: 1.5rem var(--padding-side);
+						text-align: left;
+						font-size: clamp(1.75rem, 6vw, 2.5rem);
+					}
+
 					&.open {
 						clip-path: inset(-1px -1px 0%);
 						pointer-events: auto;
 						transition: clip-path 0.4s ease-out;
-
-						li {
-							border-bottom: 1px solid var(--blue);
-							margin-left: calc(-1 * var(--padding-side));
-							margin-right: calc(-1 * var(--padding-side));
-						}
-
-						a {
-							display: block;
-							padding: 1.5rem var(--padding-side);
-							text-align: left;
-							font-size: clamp(1.75rem, 6vw, 2.5rem);
-						}
 					}
 				}
 

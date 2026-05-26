@@ -129,6 +129,12 @@
 				text-decoration: none;
 				color: inherit;
 
+				&:focus-visible {
+					outline: 2px solid var(--blue);
+					outline-offset: 4px;
+					border-radius: var(--small-radius);
+				}
+
 				svg {
 					width: 15rem;
 					height: auto;
@@ -178,6 +184,11 @@
 				line-height: 1;
 				font-family: var(--font-family);
 
+				&:focus-visible {
+					outline: 2px solid var(--blue);
+					outline-offset: 4px;
+				}
+
 				@media (min-width: 768px) {
 					display: none;
 				}
@@ -188,6 +199,12 @@
 				z-index: 2;
 				align-self: center;
 				height: 3rem;
+
+				&:focus-visible {
+					outline: 2px solid var(--blue);
+					outline-offset: 4px;
+					border-radius: var(--small-radius);
+				}
 
 				svg {
 					height: 2.5rem;
@@ -246,6 +263,12 @@
 						width: 100%;
 						height: 100%;
 					}
+
+					&:focus-visible {
+						outline: 2px solid var(--blue);
+						outline-offset: 4px;
+						border-radius: var(--small-radius);
+					}
 				}
 			}
 
@@ -259,6 +282,12 @@
 					line-height: 1;
 					letter-spacing: -0.03em;
 					position: relative;
+
+					&:focus-visible {
+						outline: 2px solid var(--blue);
+						outline-offset: 4px;
+						border-radius: var(--small-radius);
+					}
 
 					&::after {
 						content: '';

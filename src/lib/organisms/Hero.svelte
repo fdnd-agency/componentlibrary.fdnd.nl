@@ -106,6 +106,7 @@
 
 	.image-wrapper img:first-child {
 		width: 100%;
+		aspect-ratio: 16 / 9;
 		border-radius: 1.5rem;
 		min-height: 25rem;
 		object-fit: cover;

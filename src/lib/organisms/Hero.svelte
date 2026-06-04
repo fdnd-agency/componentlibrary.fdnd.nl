@@ -56,6 +56,30 @@
 			border-radius: 0 0 0 var(--radius);
 			width: 26rem;
 
+			&::before {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				left: calc(var(--radius) * -2);
+				top: 6.5%;
+				border-radius: 1.5rem;
+				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				top: 100%;
+				left: calc(100% - calc(var(--radius) * 3.88));
+				border-radius: 1.5rem;
+				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
+			}
+		}
 
 		@media (min-width: 1024px) {
 			padding: 0 clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem) clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem);
@@ -68,6 +92,7 @@
 		text-transform: uppercase;
 		font-weight: 700;
 		letter-spacing: 0.05em;
+		margin-top: 1em;
 	}
 
 	h1 {
@@ -113,6 +138,38 @@
 			width: 21em;
 
 			dt {
+				font-size: clamp(1rem, calc(18 / 60 * var(--grid-1)), 1.5rem);
+				letter-spacing: 0.1em;
+			}
+
+			dd {
+				font-size: clamp(0.875rem, calc(16 / 60 * var(--grid-1)), 1.25rem);
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				left: 2em;
+				top: calc(var(--radius) * -2);
+				border-radius: 1.5rem;
+				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				top: 3em;
+				left: 100%;
+				border-radius: 1.5rem;
+				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
+			}
+		}
 
 		@media (min-width: 1024px) {
 			padding: 1.5rem 2rem 2rem 3.5rem;

@@ -9,7 +9,7 @@
 			<h1 class="xlarge-heading">{title}</h1>
 		</hgroup>
 		<figure class="image-wrapper">
-			<img src={image} alt={imageAlt} />
+			<img src={image} alt={imageAlt} fetchpriority="high" />
 			{#if badge}
 				<img class="badge" src={badge} alt={badgeAlt} />
 			{/if}

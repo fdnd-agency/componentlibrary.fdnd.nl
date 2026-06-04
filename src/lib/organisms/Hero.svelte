@@ -50,13 +50,13 @@
 		@media (min-width: 768px) {
 			position: absolute;
 			z-index: 1;
-			top: 1.5em;
+			top: var(--padding-side);
 			right: 0;
 			padding: 0 1.5rem 1.5rem;
 			border-radius: 0 0 0 var(--radius);
 			width: 26rem;
 
-			&::before {
+			/* &::before {
 				content: '';
 				position: absolute;
 				z-index: -1;
@@ -66,7 +66,7 @@
 				top: 6.5%;
 				border-radius: 1.5rem;
 				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
-			}
+			} */
 
 			&::after {
 				content: '';
@@ -132,7 +132,7 @@
 			left: 0;
 			z-index: 1;
 			background-color: var(--background);
-			padding: 1rem 1.5rem 1.5rem 2rem;
+			padding: 1rem 1.5rem 1.5rem var(--padding-side);
 			border-radius: 0 var(--radius) 0 0;
 			gap: 0 1.5rem;
 			width: 21em;
@@ -158,7 +158,7 @@
 				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
 			}
 
-			&::after {
+			/* &::after {
 				content: '';
 				position: absolute;
 				z-index: -1;
@@ -168,11 +168,11 @@
 				left: 100%;
 				border-radius: 1.5rem;
 				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
-			}
+			} */
 		}
 
 		@media (min-width: 1024px) {
-			padding: 1.5rem 2rem 2rem 3.5rem;
+			padding: 1.5rem 2rem 2rem var(--padding-side);
 			gap: 0 2rem;
 			width: 36%;
 		}

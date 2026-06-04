@@ -35,12 +35,32 @@
 	.card {
 		background-color: var(--background);
 		border-radius: 1.5rem 1.5rem 0 0;
+
+		@media (min-width: 768px) {
+			position: relative;
+			border-radius: 1.5rem 0 0 0;
+		}
 	}
 
 	.card-content {
 		padding: var(--padding-side) 1.5rem 0;
 		background-color: var(--background);
 		border-radius: var(--section-width);
+
+		@media (min-width: 768px) {
+			position: absolute;
+			z-index: 1;
+			top: 1.5em;
+			right: 0;
+			padding: 0 1.5rem 1.5rem;
+			border-radius: 0 0 0 var(--radius);
+			width: 26rem;
+
+
+		@media (min-width: 1024px) {
+			padding: 0 clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem) clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem);
+			width: 49%;
+		}
 	}
 
 	.subtitle {
@@ -80,6 +100,25 @@
 		grid-auto-columns: max-content;
 		gap: 0 2rem;
 		padding: 0.75rem 1.5rem 1.5rem;
+
+		@media (min-width: 768px) {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			background-color: var(--background);
+			padding: 1rem 1.5rem 1.5rem 2rem;
+			border-radius: 0 var(--radius) 0 0;
+			gap: 0 1.5rem;
+			width: 21em;
+
+			dt {
+
+		@media (min-width: 1024px) {
+			padding: 1.5rem 2rem 2rem 3.5rem;
+			gap: 0 2rem;
+			width: 36%;
+		}
 	}
 
 	dt {

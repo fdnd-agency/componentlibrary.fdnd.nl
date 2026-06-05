@@ -1,58 +1,40 @@
 <script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {boolean} [primary] Is this the principal call to action on the page?
-	 * @property {string} [backgroundColor] What background color to use
-	 * @property {'small' | 'medium' | 'large'} [size] How large should the button be?
-	 * @property {string} label Button contents
-	 * @property {() => void} [onclick] The onclick event handler
-	 */
-
-	/** @type {Props} */
-	const { primary = false, backgroundColor, size = 'medium', label, ...props } = $props()
-
-	let mode = $derived(primary ? 'storybook-button--primary' : 'storybook-button--secondary')
-	let style = $derived(backgroundColor ? `background-color: ${backgroundColor}` : '')
+	let { label, onclick, ...props } = $props()
 </script>
 
-<button
-	type="button"
-	class={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-	{style}
-	{...props}
->
+<button type="button" class="button small-body" {onclick} {...props}>
 	{label}
 </button>
 
 <style>
-	.storybook-button {
-		display: inline-block;
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		cursor: pointer;
-		border: 0;
-		border-radius: 3em;
-		font-weight: 700;
-		line-height: 1;
-		font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		position: relative;
+		background: var(--background);
+		border: 1px solid var(--color);
+		border-radius: var(--small-radius);
+		padding: 0.75em 1.5em;
+		letter-spacing: 0.05em;
+		color: var(--color);
 	}
-	.storybook-button--primary {
-		background-color: #555ab9;
-		color: white;
+
+	.button::after {
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: -4px;
+		bottom: -4px;
+		background: var(--background);
+		border: 1px solid currentColor;
+		border-radius: 0.5rem;
+		z-index: -1;
 	}
-	.storybook-button--secondary {
-		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-		background-color: transparent;
-		color: #333;
-	}
-	.storybook-button--small {
-		padding: 10px 16px;
-		font-size: 12px;
-	}
-	.storybook-button--medium {
-		padding: 11px 20px;
-		font-size: 14px;
-	}
-	.storybook-button--large {
-		padding: 12px 24px;
-		font-size: 16px;
+
+.button:hover {
+		opacity: 0.8;
 	}
 </style>

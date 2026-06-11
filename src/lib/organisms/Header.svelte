@@ -1,8 +1,9 @@
-<script>
+﻿<script>
 	import { page } from '$app/state';
 	import YouTube from '$lib/icons/YouTube.svelte';
 	import Instagram from '$lib/icons/Instagram.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
+	import { Button } from '$lib';
 	let open = $state(false);
 </script>
 
@@ -17,10 +18,13 @@
 					d="M22.058 12.068c-1.653-.017-6.67-.114-13.119 2.867-.822.381-1.404.7-1.543.497-.278-.44 1.772-2.182 3.972-3.455.795-.473 1.25-.886 1.072-1.238-.265-.512-1.841-.617-6.239 1.633a24.751 24.751 0 0 0-6.034 4.736l.717.677c.706-.748 1.469-1.44 2.246-2.12.519-.45 2.923-2.246 3.133-1.704.081.217-.072.534-.924 1.698-.742 1.029-1.23 1.99-.878 2.285.35.297.773.128 1.776-.425.743-.41 3.102-1.66 6.821-2.778 3.72-1.11 4.623-.689 4.714-.417.113.366-1.6.972-2.61 1.472-.844.433-3.828 2.186-5.447 3.49 0 0 1.57 2.693 1.576 2.693 1.67-.982 8.033-2.592 8.712-1.429.746 1.277-6.024 6.035-6.024 6.035L18.293 34s9.817-11.275 8.252-13.748c-1.578-2.461-7.487-2.005-9.819-1.784-.64.056-1.392.196-1.55-.12-.176-.351.026-1.76 7.905-3.626 1.752-.41 2.434-.626 2.338-1.4-.081-.665-1.706-1.242-3.36-1.254Z"
 				></path>
 			</svg>
-			<p class="tagline small-body">Frontend Design & Development</p>
+			<p class="tagline medium-body">Frontend Design & Development</p>
 		</a>
 
-		<button class="menu-button" onclick={() => open = !open}>{open ? 'CLOSE' : 'MENU'}</button>
+		<div class="menu-toggle">
+			<Button label="MENU" onclick={() => open = !open} class="menu-btn" />
+			<Button label="CLOSE" onclick={() => open = !open} class="close-btn" />
+		</div>
 		<nav aria-label="Hoofdnavigatie">
 			<ul class="main-nav" class:open>
 				<li><a href="/frontender-worden" aria-current={page.url.pathname === '/frontender-worden' ? 'page' : undefined}>Frontender worden?</a></li>
@@ -32,7 +36,7 @@
 
 		<a href="/" class="fdnd-logo">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 93 52">
-				<title>FDND</title>
+				<title>front end design en development</title>
 				<rect width="89" height="48" x=".5" y="3.5" fill="#ECECEC" stroke="#050542" rx="7.5"></rect>
 				<path
 					fill="#ECECEC"
@@ -76,6 +80,13 @@
 		background-color: var(--base-color);
 		color: var(--color);
 		padding: 1.5rem var(--padding-side) 0;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 1.5rem;
+
+		nav {
+			display: contents;
+		}
 
 		&.open {
 			background-color: var(--accent-color-2);
@@ -84,28 +95,17 @@
 		@media (min-width: 768px) {
 			padding: 1.75rem 0 0 var(--padding-side);
 			overflow: hidden;
+			grid-template-columns: 1fr auto auto;
+			gap: 1rem;
+		}
+
+		@media (min-width: 1024px) {
+			grid-template-columns: minmax(17rem, max-content) 1fr;
 		}
 
 		@media (min-width: 1440px) {
 			padding: 3rem 0 0 var(--padding-side);
 		}
-
-		display: grid;
-		grid-template-columns: 1fr auto;
-		gap: 1.5rem;
-
-			nav {
-				display: contents;
-			}
-
-			@media (min-width: 768px) and (max-width: 1023px) {
-				grid-template-columns: 1fr auto auto;
-				gap: 1rem;
-			}
-
-			@media (min-width: 1024px) {
-				grid-template-columns: minmax(17rem, max-content) 1fr;
-			}
 
 			.hva-logo {
 				position: relative;
@@ -142,7 +142,6 @@
 						line-height: 1;
 						white-space: nowrap;
 						letter-spacing: -0.03em;
-						font-size: clamp(0.75rem, calc(var(--grid-1) * 16 / 60), 1.25rem);
 					}
 				}
 
@@ -156,25 +155,27 @@
 				}
 			}
 
-			.menu-button {
+			.menu-toggle {
+				justify-self: end;
 				position: relative;
 				z-index: 2;
-				background-color: var(--button-color);
-				color: var(--blue);
-				border: 2px solid var(--blue);
-				border-radius: var(--radius);
-				padding: 0.375rem 0.75rem;
-				cursor: pointer;
-				line-height: 1;
-				font-family: var(--font-family);
 
-				&:focus-visible {
-					outline: 2px solid var(--blue);
-					outline-offset: 4px;
+				:global(.close-btn) {
+					display: none;
 				}
 
 				@media (min-width: 768px) {
 					display: none;
+				}
+			}
+
+			&.open .menu-toggle {
+				:global(.menu-btn) {
+					display: none;
+				}
+
+				:global(.close-btn) {
+					display: inline-flex;
 				}
 			}
 
@@ -285,7 +286,7 @@
 					}
 				}
 
-				@media (max-width: 767px) {
+				@media (max-width: 767.98px) {
 					display: flex;
 					flex-direction: column;
 					position: fixed;
@@ -334,6 +335,19 @@
 					margin-right: calc(var(--radius));
 					transform: translateY(100%);
 					animation: up 0.4s 0.6s ease-out forwards;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						z-index: -1;
+						width: calc(var(--radius) * 2);
+						height: calc(var(--radius) * 2);
+						left: calc(var(--radius) * -2);
+						bottom: 0;
+						border-radius: 50%;
+						box-shadow: var(--radius) var(--radius) 0 0 var(--background);
+					}
 				}
 
 				@media (min-width: 768px) and (max-width: 1023px) {
@@ -346,11 +360,11 @@
 				}
 
 				@media (min-width: 1024px) {
-					gap: calc(var(--grid-1) * 40 / 60);
+					gap: 1rem;
 					grid-row: 2;
 					grid-column: 2;
 					justify-self: end;
-					padding: 1.5rem var(--grid-1-calc) 1.5rem 1.5rem;
+					padding: 1.5rem var(--grid-1-calc) 1.5rem 1rem;
 				}
 
 				@media (min-width: 1440px) {
@@ -368,3 +382,7 @@
 		to { transform: translateY(0); }
 	}
 </style>
+
+
+
+

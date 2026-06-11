@@ -19,3 +19,24 @@
 	</svg>
 	<p class="hosting small-body">FDND relies on hosting provided by <a href="https://www.netlify.com">netlify</a></p>
 </footer>
+
+<style>
+	.footer {
+		background-color: var(--base-color);
+		color: var(--blue);
+		padding: 2rem var(--padding-side);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	h2 {
+		color: var(--blue);
+	}
+
+	.description {
+		color: var(--blue);
+		max-width: 36rem;
+	}
+	
+</style>

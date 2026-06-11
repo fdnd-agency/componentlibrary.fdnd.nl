@@ -31,6 +31,14 @@
 		gap: 1.5rem;
 	}
 
+	@media (min-width: 1024px) {
+		.footer {
+			display: grid;
+			grid-template-columns: fit-content(var(--max-width));
+			justify-content: center;
+		}
+	}
+
 	h2 {
 		color: var(--blue);
 	}

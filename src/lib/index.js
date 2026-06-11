@@ -3,8 +3,9 @@
 // Reexport atoms
 export { default as Button } from './atoms/Button.svelte'
 
-// Reexport molecules
-export { default as Header } from './molecules/Header.svelte'
+// Reexport organisms
+export { default as Header } from './organisms/Header.svelte'
+export { default as Hero } from './organisms/Hero.svelte'
 
 // Reexport organisms
 export { default as Footer } from './organisms/Footer.svelte'

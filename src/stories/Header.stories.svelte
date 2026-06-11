@@ -1,9 +1,9 @@
 <script module>
   import { defineMeta } from '@storybook/addon-svelte-csf'
-  import Header from '$lib/molecules/Header.svelte'
+  import Header from '$lib/organisms/Header.svelte'
 
   const { Story } = defineMeta({
-    title: 'Molecules/Header',
+    title: 'Organisms/Header',
     component: Header,
     parameters: {
       layout: 'fullscreen'

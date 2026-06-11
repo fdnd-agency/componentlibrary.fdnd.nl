@@ -1,8 +1,8 @@
 <script>
-	let { label, onclick, ...props } = $props()
+	let { label, onclick, class: className = '', ...props } = $props()
 </script>
 
-<button type="button" class="button small-body" {onclick} {...props}>
+<button type="button" class={['button', 'small-body', className].filter(Boolean).join(' ')} {onclick} {...props}>
 	{label}
 </button>
 
@@ -18,6 +18,7 @@
 		border-radius: var(--small-radius);
 		padding: 0.75em 1.5em;
 		letter-spacing: 0.05em;
+		font-weight: 550;
 		color: var(--color);
 	}
 

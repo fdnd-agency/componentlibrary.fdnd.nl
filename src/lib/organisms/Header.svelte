@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 	import { page } from '$app/state';
 	import YouTube from '$lib/icons/YouTube.svelte';
 	import Instagram from '$lib/icons/Instagram.svelte';
@@ -359,11 +359,11 @@
 				}
 
 				@media (min-width: 1024px) {
-					gap: calc(var(--grid-1) * 40 / 60);
+					gap: 1rem;
 					grid-row: 2;
 					grid-column: 2;
 					justify-self: end;
-					padding: 1.5rem var(--grid-1-calc) 1.5rem 1.5rem;
+					padding: 1.5rem var(--grid-1-calc) 1.5rem 1rem;
 				}
 
 				@media (min-width: 1440px) {
@@ -381,3 +381,7 @@
 		to { transform: translateY(0); }
 	}
 </style>
+
+
+
+

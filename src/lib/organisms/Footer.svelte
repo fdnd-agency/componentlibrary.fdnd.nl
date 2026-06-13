@@ -9,11 +9,11 @@
 	<nav class="footer-nav">
 		<ul>
 			<li><a href="https://fdnd.nl" class="button medium-body">FDND.nl</a></li>
-			<li><a href="/contact" class="button medium-body">Contact &amp; routebeschrijving</a></li>
-			<li><a href="/programma" class="button medium-body">Programma</a></li>
-			<li><a href="/partners" class="button medium-body">Partners</a></li>
-			<li><a href="/niveau-matrix" class="button medium-body">Niveau-matrix</a></li>
-			<li><a href="/documenten" class="button medium-body">Documenten</a></li>
+			<li><a href="https://contact.fdnd.nl/" class="button medium-body">Contact & routebeschrijving</a></li>
+			<li><a href="https://programma.fdnd.nl/" class="button medium-body">Programma</a></li>
+			<li><a href="https://partners.fdnd.nl/" class="button medium-body">Partners</a></li>
+			<li><a href="https://niveaumatrix.fdnd.nl/" class="button medium-body">Niveau-matrix</a></li>
+			<li><a href="https://docs.fdnd.nl/" class="button medium-body">Documenten</a></li>
 		</ul>
 	</nav>
 

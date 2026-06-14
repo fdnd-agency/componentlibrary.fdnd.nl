@@ -1,6 +1,6 @@
 <script>
 	import '$lib/assets/style.css'
-	import { Header } from '$lib'
+	import { Header, Footer } from '$lib'
 
 	let { children, data } = $props()
 </script>
@@ -14,3 +14,4 @@
 <main>
 	{@render children()}
 </main>
+<Footer />

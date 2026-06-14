@@ -6,6 +6,7 @@
 	label="Associate Degree"
 	title="Frontend Design & Development"
 	image="/herostudenten-image-fdnd.jpg"
+	imageWebp="/header-image.webp"
 	imageAlt="Studenten van FDND"
 	duration="Twee jaar"
 	type="Voltijd"

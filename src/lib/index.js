@@ -7,6 +7,9 @@ export { default as Button } from './atoms/Button.svelte'
 export { default as Header } from './organisms/Header.svelte'
 export { default as Hero } from './organisms/Hero.svelte'
 
+// Reexport organisms
+export { default as Footer } from './organisms/Footer.svelte'
+
 // Reexport templates
 export { default as Page } from './templates/Page.svelte'
 

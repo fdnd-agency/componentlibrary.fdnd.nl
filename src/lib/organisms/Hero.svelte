@@ -1,5 +1,5 @@
 <script>
-	let { label, title, image, imageAlt = '', duration, type, openAvond, badge, badgeAlt = '' } = $props()
+	let { label, title, image, imageWebp = '', imageAlt = '', duration, type, openAvond, badge, badgeAlt = '' } = $props()
 </script>
 
 <section class="hero">
@@ -9,7 +9,12 @@
 			<h1 class="xlarge-heading">{title}</h1>
 		</hgroup>
 		<figure class="image-wrapper">
-			<img src={image} alt={imageAlt} width="1371" height="656" fetchpriority="high" />
+			<picture>
+				{#if imageWebp}
+					<source srcset={imageWebp} type="image/webp" />
+				{/if}
+				<img src={image} alt={imageAlt} width="1371" height="656" fetchpriority="high" />
+			</picture>
 			{#if badge}
 				<img class="badge" src={badge} alt={badgeAlt} />
 			{/if}
@@ -56,18 +61,6 @@
 			border-radius: 0 0 0 var(--radius);
 			width: 26rem;
 
-			/* &::before {
-				content: '';
-				position: absolute;
-				z-index: -1;
-				width: calc(var(--radius) * 2);
-				height: calc(var(--radius) * 2);
-				left: calc(var(--radius) * -2);
-				top: 6.5%;
-				border-radius: 1.5rem;
-				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
-			} */
-
 			&::after {
 				content: '';
 				position: absolute;
@@ -104,7 +97,7 @@
 		padding: var(--padding-side) var(--padding-side) 0;
 	}
 
-	.image-wrapper img:first-child {
+	.image-wrapper picture img {
 		width: 100%;
 		height: auto;
 		border-radius: 1.5rem;
@@ -158,18 +151,6 @@
 				border-radius: 1.5rem;
 				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
 			}
-
-			/* &::after {
-				content: '';
-				position: absolute;
-				z-index: -1;
-				width: calc(var(--radius) * 2);
-				height: calc(var(--radius) * 2);
-				top: 3em;
-				left: 100%;
-				border-radius: 1.5rem;
-				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
-			} */
 		}
 
 		@media (min-width: 1024px) {

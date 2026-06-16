@@ -29,7 +29,20 @@
 		isolation: isolate;
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1.1rem;
+
+		@media (min-width: 768px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 0fr 0fr;
+			padding: 4rem var(--padding-side);
+		}
+	}
+
+	h2, p, a.button {
+		@media (min-width: 768px) {
+			grid-column: 2;
+		}
 	}
 
 	a.button {
@@ -43,6 +56,12 @@
 
 	figure {
 		position: relative;
+
+		@media (min-width: 768px) {
+			grid-column: 1;
+			grid-row: 1 / -1;
+			align-self: start;
+		}
 	}
 
 	img {

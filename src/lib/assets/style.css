@@ -189,6 +189,17 @@ body {
 	line-height: 1.5;
 	/* 5. Improve text rendering */
 	-webkit-font-smoothing: antialiased;
+@media (min-width: 768px) {
+	body::before {
+		content: '';
+		position: fixed;
+		inset: calc(var(--radius) * -1);
+		border: calc(var(--radius) * 2) solid var(--base-color);
+		border-top: none;
+		border-radius: 0 0 calc(var(--radius) * 3) calc(var(--radius) * 3);
+		z-index: 9999;
+		pointer-events: none;
+	}
 }
 
 /* 6. Improve media defaults */

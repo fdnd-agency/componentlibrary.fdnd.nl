@@ -36,12 +36,33 @@
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: 0fr 0fr;
 			padding: 4rem var(--padding-side);
+			column-gap: 3rem;
+		}
+
+		@media (min-width: 1024px) {
+			padding: var(--padding-side) var(--padding-side) 0 calc(var(--padding-side) * 2);
+			margin-bottom: 16rem;
+			margin-top: 1rem;
+			grid-template-columns: 0.85fr 1fr;
+			column-gap: 3rem;
 		}
 	}
 
 	h2, p, a.button {
 		@media (min-width: 768px) {
 			grid-column: 2;
+		}
+	}
+
+	p {
+		@media (min-width: 1024px) { 
+			max-width: 42ch;
+		}
+	}
+
+	a.button {
+		@media (min-width: 1024px) {
+			justify-self: start;
 		}
 	}
 
@@ -62,11 +83,25 @@
 			grid-row: 1 / -1;
 			align-self: start;
 		}
+
+		@media (min-width: 1024px) {
+			align-self: start;
+		}
 	}
 
 	img {
-		width: 100%;
+		/* width: 100%; */
 		border-radius: 1.5rem;
+
+		@media (min-width: 768px) and (max-width: 1023px) {
+			max-height: 28rem;
+			object-fit: cover;
+		}
+
+		@media (min-width: 1024px) {
+			height: 40rem;
+			object-fit: cover;
+		}
 	}
 
 	figcaption {

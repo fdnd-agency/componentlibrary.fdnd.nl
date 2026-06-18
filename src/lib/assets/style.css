@@ -26,7 +26,7 @@
 	--grid-1-calc: calc(var(--grid-1));
 	--padding-side: clamp(1rem, var(--grid-1-calc), 5rem);
 	--small-radius: 0.5rem;
-	--radius: clamp(0.75rem, calc(var(--grid-1-calc) * 32 / 60), 2rem);
+	--radius: clamp(0.75rem, calc(var(--grid-1-calc) * 16 / 60), 1.5rem);
 	--section-width: calc(100vw - 3rem);
 	--max-width: 117rem;
 	--calc-side: calc((100vw - var(--max-width)) / 2);
@@ -189,6 +189,9 @@ body {
 	line-height: 1.5;
 	/* 5. Improve text rendering */
 	-webkit-font-smoothing: antialiased;
+	background-color: var(--base-color);
+}
+
 @media (min-width: 768px) {
 	body::before {
 		content: '';

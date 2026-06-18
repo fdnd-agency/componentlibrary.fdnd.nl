@@ -367,7 +367,6 @@
 					gap: 1rem;
 					grid-row: 2;
 					grid-column: 2;
-					justify-content: flex-end; /* refactoring layout 1440px — nav vult kolom zodat grijze achtergrond full-width loopt */
 					justify-content: flex-end;
 					padding: 1.5rem var(--grid-1-calc) 1.5rem 1rem;
 				}

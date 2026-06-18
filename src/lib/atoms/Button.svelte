@@ -20,6 +20,8 @@
 		letter-spacing: 0.05em;
 		font-weight: 550;
 		color: var(--color);
+		top: 0;
+		transition: top 0.1s ease-out;
 	}
 
 	.button::after {
@@ -33,9 +35,14 @@
 		border: 1px solid currentColor;
 		border-radius: 0.5rem;
 		z-index: -1;
+		transition: transform 0.1s ease-out;
 	}
 
-.button:hover {
-		opacity: 0.8;
+	.button:hover {
+		top: 1px;
+	}
+
+	.button:hover::after {
+		transform: translate(1px, -1px);
 	}
 </style>

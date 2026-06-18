@@ -14,7 +14,7 @@
 		position: fixed;
 		bottom: 0;
 		right: var(--radius);
-		z-index: 100;
+		z-index: 1;
 
 		@media (min-width: 768px) {
 			bottom: var(--radius);

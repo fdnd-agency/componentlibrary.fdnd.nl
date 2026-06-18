@@ -1,5 +1,5 @@
 <script>
-	import { Hero } from '$lib'
+	import { Hero, Intro, CTA } from '$lib'
 </script>
 
 <Hero
@@ -12,3 +12,6 @@
 	type="Voltijd"
 	openAvond="9 juni 2026"
 />
+
+<Intro />
+<CTA />

@@ -75,9 +75,9 @@
 
 <style>
 	.header {
+		background-color: var(--base-color);
 		position: relative;
 		z-index: 2;
-		background-color: var(--base-color);
 		color: var(--color);
 		padding: 1.5rem var(--padding-side) 0;
 		display: grid;
@@ -104,7 +104,7 @@
 		}
 
 		@media (min-width: 1440px) {
-			padding: 3rem 0 0 var(--padding-side);
+			padding: 3rem 0 0 max(var(--padding-side), calc((100% - 90rem) / 2 + var(--padding-side)));
 		}
 
 			.hva-logo {
@@ -238,6 +238,10 @@
 					margin-right: var(--padding-side);
 				}
 
+				@media (min-width: 1440px) {
+					margin-right: max(var(--padding-side), calc((100vw - 90rem) / 2 + var(--padding-side)));
+				}
+
 				.social {
 					display: block;
 					width: 1.5rem;
@@ -363,12 +367,12 @@
 					gap: 1rem;
 					grid-row: 2;
 					grid-column: 2;
-					justify-self: end;
+					justify-content: flex-end; /* refactoring layout 1440px — nav vult kolom zodat grijze achtergrond full-width loopt */
 					padding: 1.5rem var(--grid-1-calc) 1.5rem 1rem;
 				}
 
 				@media (min-width: 1440px) {
-					padding: 2rem var(--grid-1-calc) 2rem 2rem;
+					padding: 2rem max(var(--grid-1-calc), calc((100vw - 90rem) / 2 + var(--grid-1-calc))) 2rem 2rem;
 					gap: calc(var(--grid-1) * 50 / 60);
 
 					a {

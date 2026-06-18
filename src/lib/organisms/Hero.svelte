@@ -86,7 +86,11 @@
 
 		@media (min-width: 1024px) {
 			padding: 0 clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem) clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem);
-			width: 49%;
+		}
+
+		@media (min-width: 1440px) {
+			right: max(0rem, calc((100% - 90rem) / 2));
+			width: clamp(30rem, calc(var(--grid-1) * 10), 46rem);
 		}
 	}
 
@@ -105,6 +109,10 @@
 	.image-wrapper {
 		position: relative;
 		padding: var(--padding-side) var(--padding-side) 0;
+
+		@media (min-width: 1440px) {
+			padding: var(--padding-side) max(var(--padding-side), calc((100% - 90rem) / 2 + var(--padding-side))) 0;
+		}
 	}
 
 	.image-wrapper picture img {
@@ -113,6 +121,10 @@
 		border-radius: 1.5rem;
 		min-height: 25rem;
 		object-fit: cover;
+
+		@media (min-width: 1440px) {
+			min-height: clamp(40rem, calc(var(--grid-1) * 24), 50rem);
+		}
 	}
 
 	.badge {
@@ -178,7 +190,11 @@
 		@media (min-width: 1024px) {
 			padding: 1.5rem 2rem 2rem var(--padding-side);
 			gap: 0 2rem;
-			width: 36%;
+		}
+
+		@media (min-width: 1440px) {
+			left: max(var(--padding-side), calc((100% - 90rem) / 2 + var(--padding-side)));
+			width: clamp(26rem, calc(var(--grid-1) * 8), 34rem);
 		}
 	}
 

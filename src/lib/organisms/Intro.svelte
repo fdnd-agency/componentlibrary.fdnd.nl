@@ -46,6 +46,12 @@
 			grid-template-columns: 0.85fr 1fr;
 			column-gap: 3rem;
 		}
+
+		@media (min-width: 1440px) {
+			padding-left: max(calc(var(--padding-side) * 2), calc((100% - 90rem) / 2 + calc(var(--padding-side) * 2)));
+			padding-right: max(var(--padding-side), calc((100% - 90rem) / 2 + var(--padding-side)));
+			margin-bottom: 5rem;
+		}
 	}
 
 	h2, p, a.button {
@@ -102,6 +108,7 @@
 			height: 40rem;
 			object-fit: cover;
 		}
+
 	}
 
 	figcaption {

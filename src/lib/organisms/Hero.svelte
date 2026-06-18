@@ -33,8 +33,6 @@
 <style>
 	.hero {
 		background-color: var(--base-color);
-		padding-left: var(--radius);
-		padding-right: var(--radius);
 	}
 
 	.card {
@@ -58,8 +56,20 @@
 			top: var(--padding-side);
 			right: 0;
 			padding: 0 1.5rem 1.5rem;
-			border-radius: 0 0 0 var(--radius);
-			width: 26rem;
+			border-radius: 0 0 var(--radius) var(--radius);
+			width: clamp(26rem, calc(var(--grid-1) * 10), 36rem);
+
+			&::before {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				top: 100%;
+				right: var(--padding-side);
+				border-radius: 50%;
+				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
+			}
 
 			&::after {
 				content: '';
@@ -67,9 +77,9 @@
 				z-index: -1;
 				width: calc(var(--radius) * 2);
 				height: calc(var(--radius) * 2);
-				top: 100%;
-				left: calc(100% - calc(var(--radius) * 3.88));
-				border-radius: 1.5rem;
+				top: 0em;
+				left: calc(var(--radius) * -2);
+				border-radius: 50%;
 				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
 			}
 		}
@@ -123,13 +133,25 @@
 		@media (min-width: 768px) {
 			position: absolute;
 			bottom: 0;
-			left: 0;
+			left: var(--padding-side);
 			z-index: 1;
 			background-color: var(--background);
 			padding: 1rem 1.5rem 1.5rem var(--padding-side);
-			border-radius: 0 var(--radius) 0 0;
+			border-radius: var(--radius) var(--radius) 0 0;
 			gap: 0 1.5rem;
-			width: 21em;
+			width: clamp(21rem, calc(var(--grid-1) * 8), 30rem);
+
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				bottom: 100%;
+				left: calc(var(--radius) * 0);
+				border-radius: 50%;
+				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
+			}
 
 			dt {
 				font-size: clamp(1rem, calc(18 / 60 * var(--grid-1)), 1.5rem);
@@ -146,9 +168,9 @@
 				z-index: -1;
 				width: calc(var(--radius) * 2);
 				height: calc(var(--radius) * 2);
-				left: 2em;
-				top: calc(var(--radius) * -2);
-				border-radius: 1.5rem;
+				right: calc(var(--radius) * -2);
+				bottom: 0em;
+				border-radius: 50%;
 				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
 			}
 		}

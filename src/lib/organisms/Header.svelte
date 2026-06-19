@@ -3,7 +3,7 @@
 	import YouTube from '$lib/icons/YouTube.svelte';
 	import Instagram from '$lib/icons/Instagram.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
-	import { Button } from '$lib';
+
 	let open = $state(false);
 </script>
 
@@ -90,7 +90,8 @@
 			display: contents;
 		}
 
-		&.open {
+		&.open,
+		&:has(.nav-details[open]) {
 			background-color: var(--accent-color-2);
 		}
 
@@ -157,27 +158,67 @@
 				}
 			}
 
-			.menu-toggle {
+			.nav-details {
 				justify-self: end;
 				position: relative;
 				z-index: 2;
-
-				:global(.close-btn) {
-					display: none;
-				}
 
 				@media (min-width: 768px) {
 					display: none;
 				}
 			}
 
-			&.open .menu-toggle {
-				:global(.menu-btn) {
-					display: none;
+			summary.menu-toggle {
+				list-style: none;
+				font-size: clamp(0.75rem, calc(14 / 60 * var(--grid-1)), 1.125rem);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				position: relative;
+				background: var(--background);
+				border: 1px solid var(--color);
+				border-radius: var(--small-radius);
+				padding: 0.75em 1.5em;
+				letter-spacing: 0.05em;
+				font-weight: 550;
+				color: var(--color);
+
+				&::-webkit-details-marker { display: none; }
+
+				&::after {
+					content: '';
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					left: -4px;
+					bottom: -4px;
+					background: var(--background);
+					border: 1px solid currentColor;
+					border-radius: 0.5rem;
+					z-index: -1;
 				}
 
-				:global(.close-btn) {
-					display: inline-flex;
+				.close-label {
+					position: absolute;
+					inset: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					visibility: hidden;
+				}
+			}
+
+			&.open summary.menu-toggle,
+			.nav-details[open] summary.menu-toggle {
+				.menu-label { visibility: hidden; }
+				.close-label { visibility: visible; }
+			}
+
+			.nav-details[open] ~ nav .main-nav {
+				@media (max-width: 767.98px) {
+					clip-path: inset(-1px -1px 0%);
+					pointer-events: auto;
 				}
 			}
 

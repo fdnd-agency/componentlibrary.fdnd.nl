@@ -219,6 +219,8 @@
 				@media (max-width: 767.98px) {
 					clip-path: inset(-1px -1px 0%);
 					pointer-events: auto;
+
+					a { visibility: visible; }
 				}
 			}
 
@@ -363,12 +365,15 @@
 						padding: 1.5rem var(--padding-side);
 						text-align: left;
 						font-size: clamp(1.75rem, 6vw, 2.5rem);
+						visibility: hidden;
 					}
 
 					&.open {
 						clip-path: inset(-1px -1px 0%);
 						pointer-events: auto;
 						transition: clip-path 0.4s ease-out;
+
+						a { visibility: visible; }
 					}
 				}
 

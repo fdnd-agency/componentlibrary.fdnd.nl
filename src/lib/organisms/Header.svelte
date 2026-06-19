@@ -21,10 +21,12 @@
 			<p class="tagline medium-body">Frontend Design & Development</p>
 		</a>
 
-		<div class="menu-toggle">
-			<Button label="MENU" onclick={() => open = !open} class="menu-btn" />
-			<Button label="CLOSE" onclick={() => open = !open} class="close-btn" />
-		</div>
+		<details class="nav-details" bind:open>
+			<summary class="menu-toggle small-body">
+				<span class="menu-label">MENU</span>
+				<span class="close-label">CLOSE</span>
+			</summary>
+		</details>
 		<nav aria-label="Hoofdnavigatie">
 			<ul class="main-nav" class:open>
 				<li><a href="/frontender-worden" aria-current={page.url.pathname === '/frontender-worden' ? 'page' : undefined}>Frontender worden?</a></li>

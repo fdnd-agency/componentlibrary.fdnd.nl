@@ -350,9 +350,10 @@
 					z-index: 1;
 					padding: 8rem var(--padding-side) 0;
 					gap: 0;
+					/* animatie dropdown */
 					clip-path: inset(-1px -1px 101%);
 					pointer-events: none;
-					transition: clip-path 0.4s ease-out;
+					transition: clip-path 0.4s ease-out; 
 
 					li {
 						border-bottom: 1px solid var(--blue);
@@ -371,7 +372,7 @@
 					&.open {
 						clip-path: inset(-1px -1px 0%);
 						pointer-events: auto;
-						transition: clip-path 0.4s ease-out;
+						transition: clip-path 0.4s ease-out; /*open animatie*/
 
 						a { visibility: visible; }
 					}
@@ -385,6 +386,7 @@
 					color: var(--color);
 					align-self: end;
 					margin-right: calc(var(--radius));
+					/* animatie nav bar */
 					transform: translateY(100%);
 					animation: up 0.4s 0.6s ease-out forwards;
 					position: relative;

@@ -33,8 +33,6 @@
 <style>
 	.hero {
 		background-color: var(--base-color);
-		padding-left: var(--radius);
-		padding-right: var(--radius);
 	}
 
 	.card {
@@ -58,8 +56,20 @@
 			top: var(--padding-side);
 			right: 0;
 			padding: 0 1.5rem 1.5rem;
-			border-radius: 0 0 0 var(--radius);
-			width: 26rem;
+			border-radius: 0 0 var(--radius) var(--radius);
+			width: clamp(26rem, calc(var(--grid-1) * 10), 36rem);
+
+			&::before {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				top: 100%;
+				right: var(--padding-side);
+				border-radius: 50%;
+				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
+			}
 
 			&::after {
 				content: '';
@@ -67,16 +77,20 @@
 				z-index: -1;
 				width: calc(var(--radius) * 2);
 				height: calc(var(--radius) * 2);
-				top: 100%;
-				left: calc(100% - calc(var(--radius) * 3.88));
-				border-radius: 1.5rem;
+				top: 0em;
+				left: calc(var(--radius) * -2);
+				border-radius: 50%;
 				box-shadow: var(--radius) calc(var(--radius) * -1) 0 0 var(--background);
 			}
 		}
 
 		@media (min-width: 1024px) {
 			padding: 0 clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem) clamp(1.5rem, calc(100vw / 24 * 40 / 60), 2.5rem);
-			width: 49%;
+		}
+
+		@media (min-width: 1440px) {
+			right: max(0rem, calc((100% - 90rem) / 2));
+			width: clamp(30rem, calc(var(--grid-1) * 10), 46rem);
 		}
 	}
 
@@ -95,6 +109,10 @@
 	.image-wrapper {
 		position: relative;
 		padding: var(--padding-side) var(--padding-side) 0;
+
+		@media (min-width: 1440px) {
+			padding: var(--padding-side) max(var(--padding-side), calc((100% - 90rem) / 2 + var(--padding-side))) 0;
+		}
 	}
 
 	.image-wrapper picture img {
@@ -103,6 +121,10 @@
 		border-radius: 1.5rem;
 		min-height: 25rem;
 		object-fit: cover;
+
+		@media (min-width: 1440px) {
+			min-height: clamp(40rem, calc(var(--grid-1) * 24), 50rem);
+		}
 	}
 
 	.badge {
@@ -123,13 +145,25 @@
 		@media (min-width: 768px) {
 			position: absolute;
 			bottom: 0;
-			left: 0;
+			left: var(--padding-side);
 			z-index: 1;
 			background-color: var(--background);
 			padding: 1rem 1.5rem 1.5rem var(--padding-side);
-			border-radius: 0 var(--radius) 0 0;
+			border-radius: var(--radius) var(--radius) 0 0;
 			gap: 0 1.5rem;
-			width: 21em;
+			width: clamp(21rem, calc(var(--grid-1) * 8), 30rem);
+
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				width: calc(var(--radius) * 2);
+				height: calc(var(--radius) * 2);
+				bottom: 100%;
+				left: calc(var(--radius) * 0);
+				border-radius: 50%;
+				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
+			}
 
 			dt {
 				font-size: clamp(1rem, calc(18 / 60 * var(--grid-1)), 1.5rem);
@@ -146,9 +180,9 @@
 				z-index: -1;
 				width: calc(var(--radius) * 2);
 				height: calc(var(--radius) * 2);
-				left: 2em;
-				top: calc(var(--radius) * -2);
-				border-radius: 1.5rem;
+				right: calc(var(--radius) * -2);
+				bottom: 0em;
+				border-radius: 50%;
 				box-shadow: calc(var(--radius) * -1) var(--radius) 0 0 var(--background);
 			}
 		}
@@ -156,7 +190,11 @@
 		@media (min-width: 1024px) {
 			padding: 1.5rem 2rem 2rem var(--padding-side);
 			gap: 0 2rem;
-			width: 36%;
+		}
+
+		@media (min-width: 1440px) {
+			left: max(var(--padding-side), calc((100% - 90rem) / 2 + var(--padding-side)));
+			width: clamp(26rem, calc(var(--grid-1) * 8), 34rem);
 		}
 	}
 

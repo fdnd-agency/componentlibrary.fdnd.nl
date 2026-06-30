@@ -26,7 +26,7 @@
 	--grid-1-calc: calc(var(--grid-1));
 	--padding-side: clamp(1rem, var(--grid-1-calc), 5rem);
 	--small-radius: 0.5rem;
-	--radius: clamp(0.75rem, calc(var(--grid-1-calc) * 32 / 60), 2rem);
+	--radius: clamp(0.75rem, calc(var(--grid-1-calc) * 16 / 60), 1.5rem);
 	--section-width: calc(100vw - 3rem);
 	--max-width: 117rem;
 	--calc-side: calc((100vw - var(--max-width)) / 2);
@@ -184,11 +184,35 @@ a.button:hover::after {
 	}
 }
 
+/* 4.  reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		animation-delay: 0.01ms !important;
+	}
+}
+
 body {
 	/* 4. Increase line-height */
 	line-height: 1.5;
 	/* 5. Improve text rendering */
 	-webkit-font-smoothing: antialiased;
+	background-color: var(--base-color);
+}
+
+@media (min-width: 768px) {
+	body::before {
+		content: '';
+		position: fixed;
+		inset: calc(var(--radius) * -1);
+		border: calc(var(--radius) * 2) solid var(--base-color);
+		border-top: none;
+		border-radius: 0 0 calc(var(--radius) * 3) calc(var(--radius) * 3);
+		z-index: 9999;
+		pointer-events: none;
+	}
 }
 
 /* 6. Improve media defaults */

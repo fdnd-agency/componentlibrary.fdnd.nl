@@ -3,7 +3,7 @@
 	import YouTube from '$lib/icons/YouTube.svelte';
 	import Instagram from '$lib/icons/Instagram.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
-	import { Button } from '$lib';
+
 	let open = $state(false);
 </script>
 
@@ -21,10 +21,12 @@
 			<p class="tagline medium-body">Frontend Design & Development</p>
 		</a>
 
-		<div class="menu-toggle">
-			<Button label="MENU" onclick={() => open = !open} class="menu-btn" />
-			<Button label="CLOSE" onclick={() => open = !open} class="close-btn" />
-		</div>
+		<details class="nav-details" bind:open>
+			<summary class="menu-toggle small-body">
+				<span class="menu-label">MENU</span>
+				<span class="close-label">CLOSE</span>
+			</summary>
+		</details>
 		<nav aria-label="Hoofdnavigatie">
 			<ul class="main-nav" class:open>
 				<li><a href="/frontender-worden" aria-current={page.url.pathname === '/frontender-worden' ? 'page' : undefined}>Frontender worden?</a></li>
@@ -75,9 +77,9 @@
 
 <style>
 	.header {
+		background-color: var(--base-color);
 		position: relative;
 		z-index: 2;
-		background-color: var(--base-color);
 		color: var(--color);
 		padding: 1.5rem var(--padding-side) 0;
 		display: grid;
@@ -88,7 +90,8 @@
 			display: contents;
 		}
 
-		&.open {
+		&.open,
+		&:has(.nav-details[open]) {
 			background-color: var(--accent-color-2);
 		}
 
@@ -104,7 +107,7 @@
 		}
 
 		@media (min-width: 1440px) {
-			padding: 3rem 0 0 var(--padding-side);
+			padding: 3rem 0 0 max(var(--padding-side), calc((100% - 90rem) / 2 + var(--padding-side)));
 		}
 
 			.hva-logo {
@@ -155,27 +158,69 @@
 				}
 			}
 
-			.menu-toggle {
+			.nav-details {
 				justify-self: end;
 				position: relative;
 				z-index: 2;
-
-				:global(.close-btn) {
-					display: none;
-				}
 
 				@media (min-width: 768px) {
 					display: none;
 				}
 			}
 
-			&.open .menu-toggle {
-				:global(.menu-btn) {
-					display: none;
+			summary.menu-toggle {
+				list-style: none;
+				font-size: clamp(0.75rem, calc(14 / 60 * var(--grid-1)), 1.125rem);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				position: relative;
+				background: var(--background);
+				border: 1px solid var(--color);
+				border-radius: var(--small-radius);
+				padding: 0.75em 1.5em;
+				letter-spacing: 0.05em;
+				font-weight: 550;
+				color: var(--color);
+
+				&::-webkit-details-marker { display: none; }
+
+				&::after {
+					content: '';
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					left: -4px;
+					bottom: -4px;
+					background: var(--background);
+					border: 1px solid currentColor;
+					border-radius: 0.5rem;
+					z-index: -1;
 				}
 
-				:global(.close-btn) {
-					display: inline-flex;
+				.close-label {
+					position: absolute;
+					inset: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					visibility: hidden;
+				}
+			}
+
+			&.open summary.menu-toggle,
+			.nav-details[open] summary.menu-toggle {
+				.menu-label { visibility: hidden; }
+				.close-label { visibility: visible; }
+			}
+
+			.nav-details[open] ~ nav .main-nav {
+				@media (max-width: 767.98px) {
+					clip-path: inset(-1px -1px 0%);
+					pointer-events: auto;
+
+					a { visibility: visible; }
 				}
 			}
 
@@ -236,6 +281,10 @@
 					align-self: center;
 					justify-self: end;
 					margin-right: var(--padding-side);
+				}
+
+				@media (min-width: 1440px) {
+					margin-right: max(var(--padding-side), calc((100vw - 90rem) / 2 + var(--padding-side)));
 				}
 
 				.social {
@@ -301,9 +350,10 @@
 					z-index: 1;
 					padding: 8rem var(--padding-side) 0;
 					gap: 0;
+					/* animatie dropdown */
 					clip-path: inset(-1px -1px 101%);
 					pointer-events: none;
-					transition: clip-path 0.4s ease-out;
+					transition: clip-path 0.4s ease-out; 
 
 					li {
 						border-bottom: 1px solid var(--blue);
@@ -316,12 +366,15 @@
 						padding: 1.5rem var(--padding-side);
 						text-align: left;
 						font-size: clamp(1.75rem, 6vw, 2.5rem);
+						visibility: hidden;
 					}
 
 					&.open {
 						clip-path: inset(-1px -1px 0%);
 						pointer-events: auto;
-						transition: clip-path 0.4s ease-out;
+						transition: clip-path 0.4s ease-out; /*open animatie*/
+
+						a { visibility: visible; }
 					}
 				}
 
@@ -333,6 +386,7 @@
 					color: var(--color);
 					align-self: end;
 					margin-right: calc(var(--radius));
+					/* animatie nav bar */
 					transform: translateY(100%);
 					animation: up 0.4s 0.6s ease-out forwards;
 					position: relative;
@@ -363,12 +417,12 @@
 					gap: 1rem;
 					grid-row: 2;
 					grid-column: 2;
-					justify-self: end;
+					justify-content: flex-end;
 					padding: 1.5rem var(--grid-1-calc) 1.5rem 1rem;
 				}
 
 				@media (min-width: 1440px) {
-					padding: 2rem var(--grid-1-calc) 2rem 2rem;
+					padding: 2rem max(var(--grid-1-calc), calc((100vw - 90rem) / 2 + var(--grid-1-calc))) 2rem 2rem;
 					gap: calc(var(--grid-1) * 50 / 60);
 
 					a {

@@ -1,6 +1,6 @@
 <script>
 	import '$lib/assets/style.css'
-	import { Header, Footer } from '$lib'
+	import { Header, Main, Footer } from '$lib'
 
 	let { children, data } = $props()
 </script>
@@ -10,8 +10,7 @@
 </svelte:head>
 
 <Header />
-
-<main>
+<Main>
 	{@render children()}
-</main>
+</Main>
 <Footer />
